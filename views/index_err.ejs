@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>DINK</title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <link rel="stylesheet" href="css/bootstrap.css">
+ <meta charset="UTF-8">
+  <meta name="description" content="Encurtador de Links | DINK">
+  <meta name="keywords" content="Danitto, Wolverine, CanasDev, DINK">
+  <meta name="author" content="Equipe do Danitto">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   
+    
+  </head>
+  <body>
+
+ 
+ <center>
+   <div class="alert alert-danger" id="err">
+ <button style=" font-size: 10px;" onclick="removeError()">X</button><strong> Erro!</strong> <%= erro %>
+</div>
+    <h1>Encurtador de URL'S</h1><button onclick="changeStyle()" style="background-color: transparent; border-radius: 10%; ">🌙</button>
+  
+    <div class="container">
+       <br>
+    <p><b>Digita um URL na caixa de texto abaixo</b></p>
+    <kbd>Exemplo: https://site.com</kbd>
+    <br><br>
+    <form method="post">
+      <input type="text" name="site" class="form-control">
+    <br>
+    <p><b>Caso queiras escolhe um caminho personalizado para o link ou então deixa o padrão</b></p>
+    <kbd>Exemplo: algoAqui</kbd>
+    <br><br>
+      <input type="text" name="newLink" id="newLink" class="form-control">
+      <br>
+      <input type="submit" name="gerar" value="Gerar um URL"  class="btn btn-warning">
+    </form>
+
+</div>
+   <br><br>
+ 
+  </center>
+
+
+<script>
+function changeStyle() {
+   var element = document.body;
+   element.classList.toggle("dark-mode");
+    element.classList.toggle("buttontext");
+}
+  function makeURL(length) {
+    var result           = '';
+    var characters       = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789_';
+    var charactersLength = characters.length;
+    for ( var i = 0; i < length; i++ ) {
+      result += characters.charAt(Math.floor(Math.random() * 
+ charactersLength));
+   }
+   return result;
+}
+   function removeError() {
+     const element = document.getElementById('err');
+element.remove()
+   }
+  document.getElementById("newLink").value = makeURL(8)
+
+</script>
+  </body>
+  <style>
+ 
+    html,
+    body {
+      height: 100%;
+      color: black
+    }
+
+    .footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: orange;
+  color: white;
+  text-align: center;
+}
+ 
+.dark-mode {
+  background-color: #23272a;
+  color: white;
+  border-color: white
+}
+</style>
+
+</html>

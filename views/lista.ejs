@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="/css/bootstrap.css">
+    <title>Lista de sites</title>
+  </head>
+  <body>
+  <div class="jumbotron">
+  <div class="container">
+    <center>
+    <h3><b>Lista de links registrados</b></h3>
+      </center>
+    <table class="table table-bordered">
+      <tr>
+    <th>Site</th>
+    <th>Código</th>
+        <th>Deletar</th>
+  </tr>
+      <% sites.forEach(function(dados){ %>
+        <tr>
+          <td><%= dados.site %></td>
+          <td><%= dados.newLink %></td>
+          <td><a href="https://dink.ga/admin/delete/<%=dados.newLink%>?auth=<%=auth%>">🗑</a></td>
+        </tr>
+        <% }) %>
+    </table>
+  </div>
+  </div>
+  </body>
+</html>
